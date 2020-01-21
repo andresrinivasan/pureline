@@ -332,7 +332,7 @@ function newline_module {
     if [ -n "$__last_color" ]; then
         PS1+="$(section_end $__last_color 'Default')"
     fi
-    PS1+="\n"
+    PS1+="\[\e[K\]\n"
     unset __last_color
 }
 
@@ -358,7 +358,7 @@ function kubernetes_module {
 # -----------------------------------------------------------------------------
 function pureline_ps1 {
     __return_code=$?    # save the return code
-    local TITLEBAR='\[\e]2; \u@\h: \w \a';  # set console title
+    ##local TITLEBAR='\[\e]2; \u@\h: \w \a';  # set console title
     					    # example: {USERNAME}@{HOSTNAME}:{PWD}
     PS1=""              # reset the command prompt
 
