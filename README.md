@@ -19,7 +19,7 @@ Pureline was inspired by [Bash-Powerline-Shell](https://github.com/abhijitvallur
 
 ### Main Features
 
-Modules for the PS1 prompt include (with some environment varibale options);
+Modules for the PS1 prompt include (with some environment variable options);
 
 * Time: shows the current time
     * PL_TIME_SHOW_SECONDS=true   time format HH:MM:SS
@@ -68,6 +68,16 @@ Modules for the PS1 prompt include (with some environment varibale options);
 * Git_ahead_behind: status against upstream
 
 All the modules are optional and can be enabled or disabled in a config file.
+
+### Additional settings
+
+* Title Bar
+  * PL_TITLEBAR: Escape sequence to set terminal title bar
+    For example to set the title bar to `{USERNAME}@{HOSTNAME}:{PWD}`
+
+    ```sh
+    PL_TITLEBAR='\[\e]2; \u@\h: \w \a'
+    ```
 
 ### Unicode symbols used
 
