@@ -90,7 +90,7 @@ All the modules are optional and can be enabled or disabled in a config file.
 * Battery indicator when charging:`⚡`
 * Battery indicator when discharging:`▮`
 * Git Branch: ``
-& Git Stash: `🐿`
+* Git Stash: `🐿`
 * Number of modified files in git repo: `✚`
 * Number of staged files in git repo: `✔`
 * Number of conflicted files in git repo: `✘`
