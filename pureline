@@ -176,7 +176,13 @@ function git_module {
     if [ -n "$git_branch" ]; then
         local bg_color="$1"
         local fg_color="$2"
-        local content="${PL_SYMBOLS[git_branch]} $git_branch"
+        local content
+        
+        if [ -z "${PL_SYMBOLS[git_branch]}" ]; then 
+            content="$git_branch"
+        else
+            content="${PL_SYMBOLS[git_branch]} $git_branch"
+        fi
 
         if [ "$PL_GIT_STASH" = true ]; then
             local number_stash="$(git stash list 2>/dev/null | fgrep -v 'fatal:' | wc -l | tr -d [:space:])"
