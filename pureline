@@ -432,7 +432,6 @@ declare -A PL_SYMBOLS=(
 [read_only]="Θ"
 [return_code]="x"
 [background_jobs]="↨"
-[background_jobs]="↔"
 [python]="π"
 
 [battery_charging]="■ "
