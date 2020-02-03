@@ -188,7 +188,7 @@ function git_module {
         if [ "$PL_GIT_STASH" = true ]; then
             local number_stash="$(git stash list 2>/dev/null | grep -Fvc 'fatal:' | tr -d '[:space:]')"
             if [ ! "$number_stash" -eq 0 ]; then
-                status+="${PL_SYMBOLS[git_stash]}$number_stash"
+                status+="${PL_SYMBOLS[git_stash]}$number_stash "
             fi
         fi
 
@@ -198,10 +198,10 @@ function git_module {
             local number_behind="${number_behind_ahead%	*}"
             if [ ! "0$number_ahead" -eq 0 -o ! "0$number_behind" -eq 0 ]; then
                 if [ ! "$number_ahead" -eq 0 ]; then
-                    status+="${PL_SYMBOLS[git_ahead]}$number_ahead"
+                    status+="${PL_SYMBOLS[git_ahead]}$number_ahead "
                 fi
                 if [ ! "$number_behind" -eq 0 ]; then
-                    status+="${PL_SYMBOLS[git_behind]}$number_behind"
+                    status+="${PL_SYMBOLS[git_behind]}$number_behind "
                 fi
             fi
         fi
@@ -209,28 +209,28 @@ function git_module {
         if [ "$PL_GIT_STAGED" = true ]; then
             local number_staged="$(git diff --staged --name-only --diff-filter=AM 2> /dev/null | wc -l | tr -d '[:space:]')"
             if [ ! "$number_staged" -eq "0" ]; then
-                status+="${PL_SYMBOLS[git_staged]}$number_staged"
+                status+="${PL_SYMBOLS[git_staged]}$number_staged "
             fi
         fi
 
         if [ "$PL_GIT_CONFLICTS" = true ]; then
             local number_conflicts="$(git diff --name-only --diff-filter=U 2> /dev/null | wc -l | tr -d '[:space:]')"
             if [ ! "$number_conflicts" -eq "0" ]; then
-                status+="${PL_SYMBOLS[git_conflicts]}$number_conflicts"
+                status+="${PL_SYMBOLS[git_conflicts]}$number_conflicts "
             fi
         fi
 
         if [ "$PL_GIT_MODIFIED" = true ]; then
             local number_modified="$(git diff --name-only --diff-filter=M 2> /dev/null | wc -l | tr -d '[:space:]')"
             if [ ! "$number_modified" -eq "0" ]; then
-                status+="${PL_SYMBOLS[git_modified]}$number_modified"
+                status+="${PL_SYMBOLS[git_modified]}$number_modified "
             fi
         fi
 
         if [ "$PL_GIT_UNTRACKED" = true ]; then
             local number_untracked="$(git ls-files --other --exclude-standard 2> /dev/null | wc -l | tr -d '[:space:]')"
             if [ ! "$number_untracked" -eq "0" ]; then
-                status+="${PL_SYMBOLS[git_untracked]}$number_untracked"
+                status+="${PL_SYMBOLS[git_untracked]}$number_untracked "
             fi
         fi
 
@@ -244,7 +244,7 @@ function git_module {
         fi
 
         if [ -n "$status" ]; then
-            content+=" ${PL_SYMBOLS[soft_separator]} $status"
+            content+="${PL_SYMBOLS[soft_separator]} $status"
         fi
 
         PS1+="$(section_end $fg_color $bg_color)"
