@@ -244,7 +244,7 @@ function git_module {
         fi
 
         if [ -n "$status" ]; then
-            content+=" $status"
+            content+="${PL_SYMBOLS[soft_separator]} $status"
         fi
 
         PS1+="$(section_end $fg_color $bg_color)"
